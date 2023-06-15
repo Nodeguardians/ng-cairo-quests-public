@@ -1,0 +1,3 @@
+[crate_roots]
+elixir = "src"
+test = "test"

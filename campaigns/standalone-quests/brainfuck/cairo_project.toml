@@ -1,0 +1,3 @@
+[crate_roots]
+brainfuck = "src"
+test = "test"

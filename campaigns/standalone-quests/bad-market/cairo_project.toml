@@ -1,0 +1,3 @@
+[crate_roots]
+bad_market = "src"
+test = "test"

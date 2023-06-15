@@ -1,0 +1,5 @@
+[
+    "src/scarab.cairo",
+    "src/scarab_battle.cairo",
+    "src/scarab_skirmish.cairo"
+]

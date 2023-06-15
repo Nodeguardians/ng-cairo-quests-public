@@ -1,0 +1,12 @@
+[package]
+name = "src"
+version = "0.1.0"
+
+[scripts]
+test = "cairo-test ."
+
+[tool.NodeGuardians]
+part_1 = "Pyramid Into Array"
+part_2 = "Pyramid Search"
+
+# See more keys and their definitions at https://docs.swmansion.com/scarb/docs/reference/manifest

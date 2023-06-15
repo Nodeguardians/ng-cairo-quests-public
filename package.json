@@ -1,0 +1,14 @@
+{
+    "private": true,
+    "name": "ng-cairo-quests",
+    "version": "0.1.0",
+    "repository": "https://github.com/Nodeguardians/ng-cairo-quests.git",
+    "scripts": {
+        "test": "mocha --timeout 60000"
+    },
+    "dependencies": {
+        "chai": "^4.3.7",
+        "mocha": "^10.2.0",
+        "toml": "^3.0.0"
+    }
+}
