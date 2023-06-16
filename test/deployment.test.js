@@ -15,9 +15,9 @@ const fs = require("fs");
 const path = require("path");
 const { getFiles, equalFiles, getTrimmedContent, readToml } = require("./helpers/filehelper.js");
 
-const directory = require("../campaigns/directory.json");
+const directory = require("../cairo-campaigns/directory.json");
 
-const campaignDirectoryPath = path.resolve(__dirname, "..", "campaigns");
+const campaignDirectoryPath = path.resolve(__dirname, "..", "cairo-campaigns");
 
 const TEST_INDEX_REGEX = /(?<=_)[0-9]*(?=\.cairo$)/;
 

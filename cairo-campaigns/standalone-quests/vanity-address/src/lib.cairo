@@ -3,9 +3,11 @@ mod contracts {
     use elixir::Elixir;
 }
 
-mod interfaces;
-
 mod utils {
     mod validator;
     use validator::Validator;
+}
+
+mod solution {
+    mod brewer;
 }
