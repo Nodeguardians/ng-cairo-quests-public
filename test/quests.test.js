@@ -4,8 +4,8 @@ const { execSync } = require("child_process");
 const fs = require("fs");
 const path = require("path");
 
-const directory = require("../cairo-campaigns/directory.json");
-const campaignPath = path.resolve(__dirname, "..", "cairo-campaigns");
+const directory = require("../campaigns/directory.json");
+const campaignPath = path.resolve(__dirname, "..", "campaigns");
 
 for (const campaign of directory) {
   describe(campaign.name, async function() {
