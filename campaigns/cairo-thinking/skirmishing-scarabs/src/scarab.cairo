@@ -1,20 +1,8 @@
-// TODO: Delete
-use option::OptionTrait;
-use debug::PrintTrait;
-
 #[derive(Copy, Drop)]
 struct Scarab {
     attack: u8,
     health: u8,
     talent: Talent
-}
-
-#[derive(Copy, Drop)]
-enum Talent {
-    Talentless: (),
-    Venomous: (),
-    Swift: (),
-    Guardian: ()
 }
 
 trait ScarabTrait {
@@ -33,14 +21,6 @@ impl ScarabImpl of ScarabTrait {
             attack: attack,
             health: health,
             talent: Talent::Talentless(())
-        }
-    }
-
-    fn with_talent(attack: u8, health: u8, talent: Talent) -> Scarab {
-        Scarab {
-            attack: attack,
-            health: health,
-            talent: talent
         }
     }
 
