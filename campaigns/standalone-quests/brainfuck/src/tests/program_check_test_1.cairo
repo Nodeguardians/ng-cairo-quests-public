@@ -1,6 +1,6 @@
-use brainfuck::logic::program::ProgramTrait;
+use src::logic::program::ProgramTrait;
 
-use test::sample_programs;
+use src::tests::sample_programs;
 
 #[test]
 #[available_gas(7500000)]

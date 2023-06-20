@@ -1,7 +1,7 @@
 use array::ArrayTrait;
 
 use src::find_crocodiles::find_crocodiles;
-use test::test_utils::{
+use src::tests::test_utils::{
     assert_members,
     new_obstacle
 };

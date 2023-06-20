@@ -1,10 +1,8 @@
 [package]
 name = "src"
 version = "0.1.0"
-cairo-version = "1.1.0"
 
 [tool.NodeGuardians]
-part_1 = "Pyramid Into Array"
-part_2 = "Pyramid Search"
+part_3 = "Hello Guardian"
 
 # See more keys and their definitions at https://docs.swmansion.com/scarb/docs/reference/manifest

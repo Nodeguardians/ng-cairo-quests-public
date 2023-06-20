@@ -1,9 +1,9 @@
 use array::ArrayTrait;
 
-use brainfuck::contracts::brainfuck_vm::IBrainfuckVMDispatcherTrait;
+use src::contracts::brainfuck_vm::IBrainfuckVMDispatcherTrait;
 
-use test::sample_programs;
-use test::test_utils::{ 
+use src::tests::sample_programs;
+use src::tests::test_utils::{ 
     array_u8_to_string, 
     assert_array,
     deploy_brainfuck_vm

@@ -1,7 +1,5 @@
 "use strict";
-const { assert } = require("chai");
 const { execSync } = require("child_process");
-const fs = require("fs");
 const path = require("path");
 
 const directory = require("../campaigns/directory.json");
@@ -25,6 +23,6 @@ for (const campaign of directory) {
 
 function runScarbTests(questPath) {
     process.chdir(questPath);
-    const result = execSync("scarb run test");
+    execSync("scarb test");
     process.chdir("../../..");
 }

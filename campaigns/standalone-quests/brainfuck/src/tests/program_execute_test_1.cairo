@@ -1,9 +1,9 @@
 use array::ArrayTrait;
 
-use brainfuck::logic::program::ProgramTrait;
+use src::logic::program::ProgramTrait;
 
-use test::sample_programs;
-use test::test_utils::array_u8_to_string;
+use src::tests::sample_programs;
+use src::tests::test_utils::array_u8_to_string;
 
 #[test]
 #[available_gas(15000000)]

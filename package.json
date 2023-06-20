@@ -4,7 +4,8 @@
     "version": "0.1.0",
     "repository": "https://github.com/Nodeguardians/ng-cairo-quests.git",
     "scripts": {
-        "test": "mocha --timeout 60000"
+        "test": "mocha --timeout 60000",
+        "test:deployment": "mocha --grep Deployment --timeout 60000"
     },
     "dependencies": {
         "chai": "^4.3.7",

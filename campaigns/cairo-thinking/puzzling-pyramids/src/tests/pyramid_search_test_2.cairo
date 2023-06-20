@@ -4,7 +4,7 @@ use option::OptionTrait;
 use src::pyramid::Pyramid;
 use src::pyramid_traits::PyramidSearchTrait;
 
-use test::test_utils::{
+use src::tests::test_utils::{
     new_node,
     new_bottom_node,
     assert_array

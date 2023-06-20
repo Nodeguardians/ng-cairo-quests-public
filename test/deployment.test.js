@@ -28,8 +28,8 @@ const TEST_INDEX_REGEX = /(?<=_)[0-9]*(?=\.cairo$)/;
 async function compareFiles(questPath, toExclude) {
 
   const userFiles = await getFiles(path.join(questPath, "_src"));
-  const solutionFiles = await getFiles(path.join(questPath, "src"));
-
+  const solutionFiles = (await getFiles(path.join(questPath, "src")))
+    .filter(f => !f.includes("/private"));
   var unionContracts = [...new Set([...userFiles, ...solutionFiles])];
 
   for (const contract of unionContracts) {
@@ -124,7 +124,7 @@ describe("Deployment Configuration Test", async function() {
         assert(fs.existsSync(filesToTestPath), `${quest.name} is missing files-to-test.json`); 
         
         const filesToTest = require(filesToTestPath)
-          .map(fileName => path.resolve(questPath, fileName));
+          .map(fileName => path.resolve(questPath, fileName))
           for (const filePath of filesToTest) {
         
           assert(fs.existsSync(filePath), `Invalid file path: ${filePath} in ${filesToTestPath}`);
@@ -141,7 +141,7 @@ describe("Deployment Configuration Test", async function() {
         // Test that all other common contracts/scripts 
         // between public and private folder share the same code
         // (This ensures there is no missing file in files-to-test.json)
-        await compareFiles(questPath, [...filesToTest]);
+        await compareFiles(questPath, ["lib.cairo", ...filesToTest]);
 
       }
     }
@@ -170,18 +170,18 @@ describe("Deployment Configuration Test", async function() {
         // Else, ensure build tests respect backend format
 
         // Public tests should be available for all parts (except maybe part 1)
-        const publicTestIndices = await getTestIndices(path.resolve(questPath, "test"));
+        const publicTestIndices = await getTestIndices(path.resolve(questPath, "_src/tests"));
         for (let i = 1; i < quest.parts; i++) {
             assert(publicTestIndices.includes(i), `${questPath} is missing public test ${i}`);
         }
 
         // Ensure `lib.cairo` and `lib_private.cairo` matches
-        const publicLibConfig = getTrimmedContent(path.resolve(questPath, "test/lib_public.cairo"));
-        let privateLibConfig = getTrimmedContent(path.resolve(questPath, "test/lib.cairo"));
+        const publicLibConfig = getTrimmedContent(path.resolve(questPath, "_src/lib.cairo"));
+        let privateLibConfig = getTrimmedContent(path.resolve(questPath, "src/lib.cairo"));
         
-        privateLibConfig = privateLibConfig.replace(/modprivate{.*}$/, ""); // Remove private { } block
+        privateLibConfig = privateLibConfig.replace(/modprivate{[^}]*}/, ""); // Remove private { } block
 
-        assert(publicLibConfig == privateLibConfig, '${questPath} has mismatched test lib configs');
+        assert(publicLibConfig == privateLibConfig, `${questPath} has mismatched test lib configs`);
 
       }
 

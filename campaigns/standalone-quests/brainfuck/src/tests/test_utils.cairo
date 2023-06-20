@@ -6,7 +6,7 @@ use traits::{ Into, TryInto };
 use starknet::class_hash::Felt252TryIntoClassHash;
 use starknet::deploy_syscall;
 
-use brainfuck::contracts::brainfuck_vm::{ 
+use src::contracts::brainfuck_vm::{ 
     BrainfuckVM, 
     IBrainfuckVMDispatcher
 };

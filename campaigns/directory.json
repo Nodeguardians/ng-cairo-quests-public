@@ -3,7 +3,7 @@
         "name": "cairo-thinking",
         "quests":[
             {
-                "name": "skirmishing-scarabs",
+                "name": "sparring-sorcerers",
                 "version": "0.1.0",
                 "type": "build",
                 "parts": 3
@@ -25,6 +25,12 @@
     {
         "name": "standalone-quests",
         "quests": [
+            {
+                "name": "brainfuck",
+                "version": "0.1.0",
+                "type": "build",
+                "parts": 2
+            },
             {
                 "name": "brainfuck",
                 "version": "0.1.0",

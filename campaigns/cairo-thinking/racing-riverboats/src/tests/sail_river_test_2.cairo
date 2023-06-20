@@ -3,7 +3,7 @@ use dict::Felt252DictTrait;
 use option::OptionTrait;
 
 use src::sail_river::sail_river;
-use test::test_utils::new_obstacle;
+use src::tests::test_utils::new_obstacle;
 
 #[test]
 #[available_gas(3500000)]
