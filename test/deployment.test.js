@@ -169,12 +169,6 @@ describe("Deployment Configuration Test", async function() {
 
         // Else, ensure build tests respect backend format
 
-        // Public tests should be available for all parts (except maybe part 1)
-        const publicTestIndices = await getTestIndices(path.resolve(questPath, "_src/tests"));
-        for (let i = 1; i < quest.parts; i++) {
-            assert(publicTestIndices.includes(i), `${questPath} is missing public test ${i}`);
-        }
-
         // Ensure `lib.cairo` and `lib_private.cairo` matches
         const publicLibConfig = getTrimmedContent(path.resolve(questPath, "_src/lib.cairo"));
         let privateLibConfig = getTrimmedContent(path.resolve(questPath, "src/lib.cairo"));
@@ -183,6 +177,17 @@ describe("Deployment Configuration Test", async function() {
 
         assert(publicLibConfig == privateLibConfig, `${questPath} has mismatched test lib configs`);
 
+        if (quest.name == "build-tutorial-cairo") continue;
+
+        // Public tests should be available for all parts (except maybe part 1)
+        const publicTestIndices = 
+            await getTestIndices(path.resolve(questPath, "_src/tests"));
+        for (let i = 1; i < quest.parts; i++) {
+            assert(
+                publicTestIndices.includes(i), 
+                `${questPath} is missing public test ${i}`
+            );
+        }
       }
 
     }

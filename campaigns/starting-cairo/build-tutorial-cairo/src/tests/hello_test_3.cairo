@@ -1,4 +1,4 @@
-use src::hello_guardian;
+use src::hello::hello_guardian;
 
 #[test]
 fn test_hello_guardian() {

@@ -1,4 +1,6 @@
-/// @dev Returns 'Hello Guardian'
-fn hello_guardian() -> felt252 {
-    // Implement this function
+mod hello;
+
+#[cfg(test)]
+mod tests {
+    mod hello_test_3;
 }
