@@ -4,8 +4,6 @@ use traits::Into;
 
 use src::obstacle::Obstacle;
 
-use debug::PrintTrait;
-
 fn new_obstacle(x: u32, y: u32, z: u8) -> Obstacle {
 
     let mut description = ArrayTrait::new();
@@ -41,7 +39,7 @@ fn new_obstacle(x: u32, y: u32, z: u8) -> Obstacle {
 fn assert_members(actual: Array<usize>, expected: Array<usize>) {
     assert(actual.len() == expected.len(), 'Unexpected array length');
 
-    let mut actual_set = Felt252DictTrait::new();
+    let mut actual_set = felt252_dict_new();
     let mut i = 0;
     loop {
         if (i == actual.len()) { break (); }

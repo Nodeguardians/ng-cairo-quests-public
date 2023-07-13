@@ -14,15 +14,7 @@ enum Talent {
     Guardian: ()
 }
 
-trait SorcererTrait {
-    fn new(attack: u8, health: u8) -> Sorcerer;
-    fn with_talent(attack: u8, health: u8, talent: Talent) -> Sorcerer;
-
-    fn attack(self: @Sorcerer) -> u8;
-    fn health(self: @Sorcerer) -> u8;
-    fn is_defeated(self: @Sorcerer) -> bool;
-}
-
+#[generate_trait]
 impl SorcererImpl of SorcererTrait {
 
     fn new(attack: u8, health: u8) -> Sorcerer {

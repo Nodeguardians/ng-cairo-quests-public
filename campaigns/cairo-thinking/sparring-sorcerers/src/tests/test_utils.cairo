@@ -1,13 +1,9 @@
 use array::ArrayTrait;
 use option::OptionTrait;
 
-use src::sorcerer::Sorcerer;
-use src::sorcerer::SorcererTrait;
+use src::sorcerer::{ Sorcerer, SorcererTrait };
 
-trait TestSorcererTrait {
-    fn assert_health(self: @Sorcerer, expected: u8);
-}
-
+#[generate_trait]
 impl TestSorcererImpl of TestSorcererTrait {
     fn assert_health(self: @Sorcerer, expected: u8) {
         assert(self.health() == expected, 'Unexpected Sorcerer: bad health');

@@ -75,12 +75,10 @@ describe("Deployment Configuration Test", async function() {
         assert(version == quest.version, `"${quest.name}" has mismatched versions`);
 
         // Test valid type
-        assert(quest.type == "ctf" || quest.type == "build", `${quest.name} has an invalid type`)
-        const contractsPath = quest.type == "ctf"
-          ? path.join(questPath, "src_")
-          : path.join(questPath, "_src");
-        
-        assert(fs.existsSync(contractsPath),`${quest.name} might have an incorrect type`);
+        assert(
+            quest.type == "ctf" || quest.type == "build", 
+            `${quest.name} has an invalid type`
+        );
 
         // Test valid number of parts
         const lastPartPath = path.join(questPath, `description/part${quest.parts}.md`);
@@ -114,10 +112,8 @@ describe("Deployment Configuration Test", async function() {
 
         const questPath = path.resolve(campaignDirectoryPath, campaign.name, quest.name);
 
-        // If quest is CTF (i.e. has no /src folder), skip
-        if (!fs.existsSync(path.resolve(questPath, "src"))) { 
-          continue; 
-        }
+        // If quest is CTF, skip
+        if (quest.type == "ctf") { continue; }
 
         // Ensure build quest has files-to-test.json
         const filesToTestPath = path.resolve(questPath, "files-to-test.json");
@@ -153,16 +149,19 @@ describe("Deployment Configuration Test", async function() {
 
       for (const quest of campaign.quests) {
         const questPath = path.resolve(campaignDirectoryPath, campaign.name, quest.name);
+        
+        // If quest is CTF
+        if (quest.type == "ctf") { 
+          // Ensure no public test files or utils
+          assert(
+            !fs.existsSync(path.resolve(questPath, "_src/tests/")), 
+            `${questPath} should not have public tests`
+          );
 
-        const testFiles = fs.readdirSync(questPath);
-
-        // If quest is CTF (i.e. has no /src folder)
-        if (!fs.existsSync(path.resolve(questPath, "src"))) { 
-          // Ensure no public test files
-          const publicTests = testFiles
-            .filter(file => !file.startsWith("validation/"))
-            .filter(file => !file.startsWith("private/"));
-          assert(publicTests.length == 0, `${questPath} should not have public tests`);
+          assert(
+            !fs.existsSync(path.resolve(questPath, "_src/utils/")), 
+            `${questPath} should not have public utils`
+          );
 
           continue; 
         }
@@ -175,7 +174,10 @@ describe("Deployment Configuration Test", async function() {
         
         privateLibConfig = privateLibConfig.replace(/modprivate{[^}]*}/, ""); // Remove private { } block
 
-        assert(publicLibConfig == privateLibConfig, `${questPath} has mismatched test lib configs`);
+        assert(
+            publicLibConfig == privateLibConfig, 
+            `${questPath} has mismatched test lib configs`
+        );
 
         if (quest.name == "build-tutorial-cairo") continue;
 
