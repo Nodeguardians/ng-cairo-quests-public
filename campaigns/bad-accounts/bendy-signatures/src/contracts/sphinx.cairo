@@ -75,7 +75,7 @@ mod Sphinx {
             );
 
             let mut results = ArrayTrait::new();
-            results.append(call_result.unwrap_syscall());
+            results.append(call_result.unwrap());
 
             results
         }

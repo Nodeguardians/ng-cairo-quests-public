@@ -11,7 +11,7 @@ use src::tests::test_utils::{
 };
 
 #[test]
-#[available_gas(440000)]
+#[available_gas(470000)]
 fn test_search() {
     let mut chambers = ArrayTrait::new();
     chambers.append(new_node('l', 4, 9));
@@ -43,14 +43,14 @@ fn test_search() {
 
     let actual_path = pyramid.search('k');
     assert_array(
-        actual_path.expect('Search path empty'), 
-        expected_path
+       actual_path.expect('Search path empty'), 
+       expected_path
     );
     
 }
 
 #[test]
-#[available_gas(420000)]
+#[available_gas(460000)]
 fn test_search_inexistent_element() {
     let mut chambers = ArrayTrait::new();
     chambers.append(new_bottom_node('0'));

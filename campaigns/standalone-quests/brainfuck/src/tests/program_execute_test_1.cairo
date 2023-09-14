@@ -6,7 +6,7 @@ use src::tests::sample_programs;
 use src::tests::test_utils::array_u8_to_string;
 
 #[test]
-#[available_gas(15000000)]
+#[available_gas(24000000)]
 fn test_simple_multiply() {
     let program = sample_programs::simple_mul();
     let mut input = ArrayTrait::new();
@@ -19,7 +19,7 @@ fn test_simple_multiply() {
 }
 
 #[test]
-#[available_gas(18000000)]
+#[available_gas(24000000)]
 fn test_cell_overflow() {
     let program = sample_programs::overflow_program();
     let mut input = ArrayTrait::new();
@@ -42,7 +42,7 @@ fn test_memory() {
 }
 
 #[test]
-#[available_gas(180000000)]
+#[available_gas(140000000)]
 fn test_looping() {
     let program = sample_programs::echo();
     let mut input = ArrayTrait::new();
@@ -58,9 +58,8 @@ fn test_looping() {
     assert(result_string == 'Brain', 'Unexpected result');
 }
 
-
 #[test]
-#[available_gas(70000000)]
+#[available_gas(52500000)]
 fn test_hello_world() {
     let program = sample_programs::hello_world();
 

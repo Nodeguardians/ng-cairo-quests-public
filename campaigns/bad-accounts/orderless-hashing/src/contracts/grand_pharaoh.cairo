@@ -1,3 +1,4 @@
+// TODO: Use corelib interface
 #[starknet::interface]
 trait AccountContract<TContractState> {
     fn __validate_declare__(self: @TContractState, class_hash: felt252) -> felt252;
@@ -69,7 +70,7 @@ mod GrandPharaoh {
                     to, selector, calldata.span()
                 );
 
-                results.append(call_result.unwrap_syscall())
+                results.append(call_result.unwrap())
             },
             Option::None(_) => {
                 return ();
@@ -101,9 +102,9 @@ mod GrandPharaoh {
     fn get_call_hash(call: Call) -> u256 {
         let Call { to, selector, calldata } = call;
 
-        let h1 = pedersen(to.into(), selector);
+        let h1 = pedersen::pedersen(to.into(), selector);
         let h2 = poseidon::poseidon_hash_span(calldata.span());
 
-        pedersen(h1, h2).into()
+        pedersen::pedersen(h1, h2).into()
     }
 }

@@ -6,7 +6,7 @@ use src::sorcerer_duel::duel;
 use src::tests::test_utils::TestSorcererTrait;
 
 #[test]
-#[available_gas(380000)]
+#[available_gas(425000)]
 fn test_venomous_talent() {
     let mut sorcerer1 = SorcererTrait::new(1, 10);
     let mut sorcerer2 = SorcererTrait::with_talent(1, 3, Talent::Venomous(()));
@@ -23,9 +23,8 @@ fn test_venomous_talent() {
     sorcerer2.assert_health(79);
 }
 
-
 #[test]
-#[available_gas(330000)]
+#[available_gas(375000)]
 fn test_swift_talent() {
     let mut sorcerer1 = SorcererTrait::new(2, 7);
     let mut sorcerer2 = SorcererTrait::with_talent(4, 3, Talent::Swift(()));
@@ -50,7 +49,7 @@ fn test_swift_talent() {
 }
 
 #[test]
-#[available_gas(230000)]
+#[available_gas(250000)]
 fn test_guardian_talent() {
     let mut sorcerer1 = SorcererTrait::with_talent(4, 2, Talent::Guardian(()));
     let mut sorcerer2 = SorcererTrait::new(1, 6);
@@ -68,7 +67,7 @@ fn test_guardian_talent() {
 }
 
 #[test]
-#[available_gas(320000)]
+#[available_gas(360000)]
 fn test_all_talents() {
     let mut sorcerer1 = SorcererTrait::with_talent(3, 12, Talent::Guardian(()));
     let mut sorcerer2 = SorcererTrait::with_talent(2, 18, Talent::Venomous(()));

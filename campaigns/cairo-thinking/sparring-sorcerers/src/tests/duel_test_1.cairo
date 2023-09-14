@@ -23,7 +23,7 @@ fn test_duel_1() {
 }
 
 #[test]
-#[available_gas(300000)]
+#[available_gas(330000)] 
 fn test_duel_2() {
     let mut sorcerer1 = SorcererTrait::new(5, 17);
     let mut sorcerer2 = SorcererTrait::new(3, 20);

@@ -6,7 +6,7 @@ use src::sail_river::sail_river;
 use src::tests::test_utils::new_obstacle;
 
 #[test]
-#[available_gas(3500000)]
+#[available_gas(2000000)]
 fn test_sail_river() {
     let mut river = ArrayTrait::new();
     river.append(new_obstacle(1, 1, 1));
@@ -37,7 +37,7 @@ fn test_sail_river() {
 }
 
 #[test]
-#[available_gas(3500000)]
+#[available_gas(1000000)]
 fn test_sail_river_no_crocodiles() {
     let mut river = ArrayTrait::new();
     river.append(new_obstacle(1, 0, 1));
@@ -61,9 +61,8 @@ fn test_sail_river_no_crocodiles() {
     }
 }
 
-
 #[test]
-#[available_gas(3500000)]
+#[available_gas(1600000)]
 fn test_sail_river_inexistent_path() {
     let mut river = ArrayTrait::new();
     river.append(new_obstacle(1, 0, 1));
@@ -83,7 +82,7 @@ fn test_sail_river_inexistent_path() {
 }
 
 #[test]
-#[available_gas(3500000)]
+#[available_gas(450000)]
 fn test_sail_river_start_crocodile() {
     let mut river = ArrayTrait::new();
     river.append(new_obstacle(2, 2, 2)); // Duplicate
@@ -96,7 +95,7 @@ fn test_sail_river_start_crocodile() {
 }
 
 #[test]
-#[available_gas(3500000)]
+#[available_gas(550000)]
 fn test_sail_river_end_crocodile() {
     let mut river = ArrayTrait::new();
     river.append(new_obstacle(0, 0, 0));

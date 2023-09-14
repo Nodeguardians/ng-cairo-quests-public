@@ -97,7 +97,7 @@ mod Tombkeeper2 {
                 let Call { to, selector, calldata } = call;
                 let call_result = starknet::call_contract_syscall(
                     to, selector, calldata.span()
-                ).unwrap_syscall();
+                ).unwrap();
 
                 results.append(call_result)
             },
