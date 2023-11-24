@@ -4,6 +4,7 @@
     "version": "0.1.0",
     "repository": "https://github.com/Nodeguardians/ng-cairo-quests.git",
     "scripts": {
+        "prepare": "husky install",
         "test": "mocha --timeout 60000",
         "test:deployment": "mocha --grep Deployment --timeout 60000"
     },
@@ -13,5 +14,10 @@
         "mocha": "^10.2.0",
         "starknet": "^5.14.1",
         "toml": "^3.0.0"
+    },
+    "devDependencies": {
+        "@commitlint/cli": "^18.2.0",
+        "@commitlint/config-conventional": "^18.1.0",
+        "husky": "^8.0.3"
     }
 }

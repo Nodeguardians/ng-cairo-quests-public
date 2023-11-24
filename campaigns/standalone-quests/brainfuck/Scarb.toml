@@ -1,10 +1,10 @@
 [package]
 name = "src"
-version = "1.1.0"
-cairo-version = "2.2.0"
+version = "1.2.0"
+cairo-version = "2.3.1"
 
 [dependencies]
-starknet = "2.2.0"
+starknet = "2.3.1"
 
 [tool.NodeGuardians]
 part_1 = "Brainfuck Program"
