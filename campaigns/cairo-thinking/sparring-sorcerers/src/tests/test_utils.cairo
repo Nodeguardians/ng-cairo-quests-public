@@ -11,6 +11,10 @@ impl TestSorcererImpl of TestSorcererTrait {
             assert(self.is_defeated(), 'Unexpected Sorcerer: not dead');
         }
     }
+
+    fn assert_attack(self: @Sorcerer, expected: u8) {
+        assert(self.attack() == expected, 'Unexpected Sorcerer: bad attack');
+    }
 }
 
 fn assert_team(mut actual: Array<Sorcerer>, mut expected: Array<Sorcerer>) {
