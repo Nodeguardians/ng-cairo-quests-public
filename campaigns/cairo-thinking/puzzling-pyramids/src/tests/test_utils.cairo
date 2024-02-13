@@ -25,9 +25,8 @@ fn assert_array<T, impl TPartialEq: PartialEq<T>, impl TDrop: Drop<T>>(
         actual.len() == expected.len(), 
         'Unexpected array length' 
     );
-    loop {
-        if actual.len() == 0 { break (); }
-        
+    while (actual.len() > 0) {
+
         let actual_item = actual.pop_front().unwrap();
         let expected_item = expected.pop_front().unwrap();
 

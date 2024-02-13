@@ -22,7 +22,7 @@ mod RoyalSpear {
         self.is_equipped.write(true);
     }
 
-    #[external(v0)]
+    #[abi(embed_v0)]
     impl RoyalSpearImpl of super::IRoyalSpear<ContractState> {
         fn owner(self: @ContractState) -> ContractAddress {
             self.owner.read()

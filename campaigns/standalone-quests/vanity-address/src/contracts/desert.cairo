@@ -17,7 +17,7 @@ mod EndlessDesert {
         is_oasis_found: bool,
     }
     
-    #[external(v0)]
+    #[abi(embed_v0)]
     impl EndlessDesert of IDesert<ContractState> {
 
         fn is_oasis_found(self: @ContractState) -> bool {

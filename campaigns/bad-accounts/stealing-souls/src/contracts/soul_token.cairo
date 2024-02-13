@@ -57,7 +57,7 @@ mod SoulToken {
         self.admin.write(admin);
     }
 
-    #[external(v0)]
+    #[abi(embed_v0)]
     impl IERC20Impl of super::IERC20<ContractState> {
         fn name(self: @ContractState) -> felt252 {
             'Soul'
@@ -124,7 +124,6 @@ mod SoulToken {
                 }
             );
         }
-
     }
 
     #[generate_trait]

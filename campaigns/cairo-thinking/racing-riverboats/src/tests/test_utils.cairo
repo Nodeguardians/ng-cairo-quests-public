@@ -49,8 +49,7 @@ fn assert_members(actual: Array<usize>, expected: Array<usize>) {
     };
 
     let mut i = 0;
-    loop {
-        if (i == expected.len()) { break (); }
+    while (i != expected.len()) {
         let exists = actual_set.get((*expected[i]).into());
 
         assert(exists != 0, 'Missing element');

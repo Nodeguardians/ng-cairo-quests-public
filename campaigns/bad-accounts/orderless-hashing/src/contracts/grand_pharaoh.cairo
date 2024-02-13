@@ -28,7 +28,7 @@ mod GrandPharaoh {
         self.pub_key.write(pub_key);
     }
 
-    #[external(v0)]
+    #[abi(embed_v0)]
     impl AccountImpl of super::AccountContract<ContractState> {
 
         fn __validate_declare__(self: @ContractState, class_hash: felt252) -> felt252 {

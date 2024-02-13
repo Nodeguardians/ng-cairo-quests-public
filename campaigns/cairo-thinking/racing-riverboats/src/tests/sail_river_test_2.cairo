@@ -95,7 +95,7 @@ fn test_sail_river_start_crocodile() {
 }
 
 #[test]
-#[available_gas(550000)]
+#[available_gas(560000)]
 fn test_sail_river_end_crocodile() {
     let mut river = ArrayTrait::new();
     river.append(new_obstacle(0, 0, 0));

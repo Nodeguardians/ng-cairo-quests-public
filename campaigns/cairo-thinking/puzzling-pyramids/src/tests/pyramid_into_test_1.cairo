@@ -11,7 +11,7 @@ use src::tests::test_utils::{
 };
 
 #[test]
-#[available_gas(550000)]
+#[available_gas(560000)]
 fn test_into() {
     let mut chambers = ArrayTrait::new();
     chambers.append(new_node('l', 4, 9));

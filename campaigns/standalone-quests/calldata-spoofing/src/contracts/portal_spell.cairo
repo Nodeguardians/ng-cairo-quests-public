@@ -23,7 +23,7 @@ mod PortalSpell {
     #[storage]
     struct Storage { }
 
-    #[external(v0)]
+    #[abi(embed_v0)]
     impl PortalSpellImpl of super::IPortalSpell<ContractState> {
         // Returns true if given the correct portal_data...
         fn cast(self: @ContractState, portal_data: Array<PortalData>) -> bool {

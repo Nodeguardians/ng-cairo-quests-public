@@ -16,9 +16,7 @@ impl TestSorcererImpl of TestSorcererTrait {
 fn assert_team(mut actual: Array<Sorcerer>, mut expected: Array<Sorcerer>) {
     assert(actual.len() == expected.len(), 'Unexpected team size');
 
-    loop {
-        if actual.is_empty() { break (); }
-
+    while (!actual.is_empty()) {
         let s1 = actual.pop_front().unwrap();
         let s2 = expected.pop_front().unwrap();
 

@@ -18,11 +18,10 @@ mod Gates {
 
     #[constructor]
     fn constructor(ref self: ContractState, sphinx: ContractAddress) {
-        let x = 0;
         self.sphinx.write(sphinx);
     }
 
-    #[external(v0)]
+    #[abi(embed_v0)]
     impl GatesImpl of super::IGates<ContractState> {
 
         fn sphinx(self: @ContractState) -> ContractAddress {
@@ -39,7 +38,6 @@ mod Gates {
 
             self.is_open.write(true);
         }
-
     }
 
 }

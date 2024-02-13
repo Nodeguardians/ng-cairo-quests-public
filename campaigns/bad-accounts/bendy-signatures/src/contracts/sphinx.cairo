@@ -5,7 +5,7 @@ trait AccountContract<TContractState> {
     fn __execute__(ref self: TContractState, calls: Array<starknet::account::Call>) -> Array<Span<felt252>>;
 }
 
-#[starknet::contract]
+#[starknet::contract(account)]
 mod Sphinx {
 
     use array::{ ArrayTrait, SpanTrait };
@@ -25,7 +25,7 @@ mod Sphinx {
         used_sigs: LegacyMap<(felt252, felt252), bool>
     }
 
-    #[external(v0)]
+    #[abi(embed_v0)]
     impl AccountImpl of super::AccountContract<ContractState> {
 
         fn __validate_declare__(self: @ContractState, class_hash: felt252) -> felt252 {
@@ -39,9 +39,7 @@ mod Sphinx {
             assert(raw_sig.len() == 6, 'INVALID_SIGNATURE_LENGTH');
 
             let mut i = 0;
-            loop {
-                if i == 6 { break; }
-
+            while (i != 6) {
                 let riddle = *raw_sig[i];
                 let r = *raw_sig[i + 1];
                 let s = *raw_sig[i + 2];
@@ -71,7 +69,7 @@ mod Sphinx {
 
             let Call { to, selector, calldata } = calls.pop_front().unwrap();
             let call_result = starknet::call_contract_syscall(
-                to, selector, calldata.span()
+                to, selector, calldata
             );
 
             let mut results = ArrayTrait::new();

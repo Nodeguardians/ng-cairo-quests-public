@@ -32,7 +32,7 @@ fn test_battle_1() {
 }
 
 #[test]
-#[available_gas(590000)]
+#[available_gas(610000)]
 fn test_battle_2() {
     let mut team1 = ArrayTrait::new();
     team1.append(SorcererTrait::new(1, 1));
@@ -75,7 +75,7 @@ fn test_battle_3() {
 }
 
 #[test]
-#[available_gas(1200000)]
+#[available_gas(1300000)]
 fn test_battle_4() {
     let mut team1 = ArrayTrait::new();
     team1.append(SorcererTrait::with_talent(1, 8, Talent::Swift(())));

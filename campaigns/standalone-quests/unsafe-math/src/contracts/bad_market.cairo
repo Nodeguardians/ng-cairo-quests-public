@@ -19,7 +19,7 @@ mod BadMarket {
         incense_sold: felt252
     }
 
-    #[external(v0)]
+    #[abi(embed_v0)]
     impl BadMarketImpl of super::IBadMarket<ContractState> {
         fn incense_sold(self: @ContractState) -> felt252 {
             self.incense_sold.read()

@@ -17,7 +17,7 @@ mod SandDevils {
         self.count.write(count);
     }
     
-    #[external(v0)]
+    #[abi(embed_v0)]
     impl EndlessDesert of super::ISandDevils<ContractState> {
 
         fn count(self: @ContractState) -> u32 {

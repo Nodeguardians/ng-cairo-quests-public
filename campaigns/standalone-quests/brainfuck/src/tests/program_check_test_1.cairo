@@ -17,7 +17,6 @@ fn test_check() {
 
 #[test]
 #[should_panic()]
-#[available_gas(2500000)]
 fn test_check_invalid_program_1() {
     let program = sample_programs::invalid_program_1();
     program.check();
@@ -25,7 +24,6 @@ fn test_check_invalid_program_1() {
 
 #[test]
 #[should_panic()]
-#[available_gas(2500000)]
 fn test_check_invalid_program_2() {
     let program = sample_programs::invalid_program_2();
     program.check();
@@ -33,7 +31,6 @@ fn test_check_invalid_program_2() {
 
 #[test]
 #[should_panic()]
-#[available_gas(2500000)]
 fn test_check_invalid_program_3() {
     let program = sample_programs::invalid_program_3();
     program.check();

@@ -1,6 +1,6 @@
 use super::commons::ITombkeeper;
 
-#[starknet::contract]
+#[starknet::contract(account)]
 mod Tombkeeper2 {
 
     use array::ArrayTrait;
@@ -32,7 +32,7 @@ mod Tombkeeper2 {
         self.soul_vault.write(soul_vault);
     }
 
-    #[external(v0)]
+    #[abi(embed_v0)]
     impl TombkeeperImpl of super::ITombkeeper<ContractState> {
 
         fn __validate__(ref self: ContractState, calls: Array<Call>) -> felt252 {
@@ -96,7 +96,7 @@ mod Tombkeeper2 {
             Option::Some(call) => {
                 let Call { to, selector, calldata } = call;
                 let call_result = starknet::call_contract_syscall(
-                    to, selector, calldata.span()
+                    to, selector, calldata
                 ).unwrap();
 
                 results.append(call_result)

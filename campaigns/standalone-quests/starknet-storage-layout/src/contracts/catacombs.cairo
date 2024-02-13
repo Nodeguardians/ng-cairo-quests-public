@@ -17,7 +17,7 @@ trait ICatacombs<TContractState> {
 #[starknet::contract]
 mod Catacombs {
     use option::OptionTrait;
-    use starknet::storage_write_syscall;
+    use starknet::{ storage_write_syscall, SyscallResultTrait };
     use traits::TryInto;
 
     use super::Chest;
@@ -26,12 +26,12 @@ mod Catacombs {
     struct Storage {
         entry_code: felt252,
         brightness: u256,
-        safe_tiles: LegacyMap::<u256, bool>, // tile_id => is_safe
+        safe_tiles: LegacyMap::<u256, bool>,
         chest: Chest
     }
 
 
-    #[external(v0)]
+    #[abi(embed_v0)]
     impl CatacombsImpl of super::ICatacombs<ContractState> {
 
         fn get_entry_code(self: @ContractState) -> felt252 {
@@ -56,7 +56,9 @@ mod Catacombs {
             value: felt252
         ) {
             let storageAddress = slot_index.try_into().unwrap();
-            storage_write_syscall(0, storageAddress, value);
+            let result = storage_write_syscall(0, storageAddress, value);
+
+            result.unwrap_syscall();
         }
     }
 }

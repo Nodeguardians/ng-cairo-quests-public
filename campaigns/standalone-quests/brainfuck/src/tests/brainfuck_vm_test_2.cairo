@@ -20,7 +20,6 @@ fn test_deploy() {
 }
 
 #[test]
-#[available_gas(100000)]
 #[should_panic()]
 fn test_deploy_invalid_program() {
     let vm = deploy_brainfuck_vm();
@@ -53,7 +52,7 @@ fn test_call() {
 }
 
 #[test]
-#[available_gas(125000000)]
+#[available_gas(150000000)]
 fn test_call_2() {
     let vm = deploy_brainfuck_vm();
     let program_id = vm.deploy(sample_programs::echo());
@@ -74,7 +73,7 @@ fn test_call_2() {
 
 
 #[test]
-#[available_gas(90000000)]
+#[available_gas(100000000)]
 fn test_multiple_call() {
     let vm = deploy_brainfuck_vm();
 

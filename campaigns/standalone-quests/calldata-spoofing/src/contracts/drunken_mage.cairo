@@ -34,7 +34,7 @@ mod DrunkenMage {
         self.spell_address.write(spell_address);
     }
 
-    #[external(v0)]
+    #[abi(embed_v0)]
     impl DrunkenMageImpl of super::IDrunkenMage<ContractState> {
 
         fn is_home(self: @ContractState) -> bool {
