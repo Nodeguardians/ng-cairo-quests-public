@@ -81,7 +81,7 @@ fn test_battle_4() {
     team1.append(SorcererTrait::with_talent(1, 8, Talent::Swift(())));
     team1.append(SorcererTrait::with_talent(2, 1, Talent::Guardian(())));
     team1.append(SorcererTrait::with_talent(1, 10, Talent::Venomous(())));
-    team1.append(SorcererTrait::new(2, 11)); // (2, 7)
+    team1.append(SorcererTrait::new(2, 15)); 
     team1.append(SorcererTrait::new(2, 3));
     team1.append(SorcererTrait::new(2, 6));
 
