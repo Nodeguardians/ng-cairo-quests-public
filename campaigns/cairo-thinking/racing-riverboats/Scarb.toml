@@ -1,7 +1,10 @@
 [package]
 name = "src"
-version = "1.3.0"
-cairo-version = "2.5.3"
+version = "1.4.0"
+cairo-version = "2.7.0"
+
+[dependencies]
+cairo_test = "2.7.0"
 
 [tool.NodeGuardians]
 part_1 = "Find Crocodiles"

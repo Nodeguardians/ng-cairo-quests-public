@@ -17,7 +17,11 @@ trait ICatacombs<TContractState> {
 #[starknet::contract]
 mod Catacombs {
     use option::OptionTrait;
-    use starknet::{ storage_write_syscall, SyscallResultTrait };
+    use starknet::{ 
+        storage_write_syscall, 
+        storage::Map,
+        SyscallResultTrait,
+    };
     use traits::TryInto;
 
     use super::Chest;
@@ -26,7 +30,7 @@ mod Catacombs {
     struct Storage {
         entry_code: felt252,
         brightness: u256,
-        safe_tiles: LegacyMap::<u256, bool>,
+        safe_tiles: Map::<u256, bool>,
         chest: Chest
     }
 

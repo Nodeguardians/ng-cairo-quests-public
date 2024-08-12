@@ -9,7 +9,7 @@ use src::sorcerer_battle::battle;
 use src::tests::test_utils::{ assert_team, assert_defeated };
 
 #[test]
-#[available_gas(440000)]
+#[available_gas(255000)]
 fn test_battle_1() {
     let mut team1 = ArrayTrait::new();
     team1.append(SorcererTrait::new(4, 3));
@@ -32,7 +32,7 @@ fn test_battle_1() {
 }
 
 #[test]
-#[available_gas(610000)]
+#[available_gas(340000)]
 fn test_battle_2() {
     let mut team1 = ArrayTrait::new();
     team1.append(SorcererTrait::new(1, 1));
@@ -55,7 +55,7 @@ fn test_battle_2() {
 }
 
 #[test]
-#[available_gas(310000)]
+#[available_gas(180000)]
 fn test_battle_3() {
     let mut team1 = ArrayTrait::new();
     team1.append(SorcererTrait::new(1, 7));
@@ -75,7 +75,7 @@ fn test_battle_3() {
 }
 
 #[test]
-#[available_gas(1300000)]
+#[available_gas(690000)]
 fn test_battle_4() {
     let mut team1 = ArrayTrait::new();
     team1.append(SorcererTrait::with_talent(1, 8, Talent::Swift(())));

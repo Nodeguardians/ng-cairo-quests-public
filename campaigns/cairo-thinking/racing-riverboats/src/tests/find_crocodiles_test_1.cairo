@@ -7,7 +7,7 @@ use src::tests::test_utils::{
 };
 
 #[test]
-#[available_gas(1800000)]
+#[available_gas(1500000)]
 fn test_find_crocodiles() {
     let mut river = ArrayTrait::new();
     river.append(new_obstacle(1, 1, 1));

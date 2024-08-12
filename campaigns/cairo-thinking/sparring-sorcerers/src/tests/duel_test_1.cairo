@@ -5,7 +5,7 @@ use src::sorcerer_duel::duel;
 use src::tests::test_utils::TestSorcererTrait;
 
 #[test]
-#[available_gas(220000)]
+#[available_gas(120000)]
 fn test_duel_1() {
     let mut sorcerer1 = SorcererTrait::new(7, 4);
     let mut sorcerer2 = SorcererTrait::new(1, 3);
@@ -23,7 +23,7 @@ fn test_duel_1() {
 }
 
 #[test]
-#[available_gas(330000)] 
+#[available_gas(175000)] 
 fn test_duel_2() {
     let mut sorcerer1 = SorcererTrait::new(5, 17);
     let mut sorcerer2 = SorcererTrait::new(3, 20);

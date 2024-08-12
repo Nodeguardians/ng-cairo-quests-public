@@ -39,7 +39,7 @@ fn test_memory() {
 }
 
 #[test]
-#[available_gas(140000000)]
+#[available_gas(95000000)]
 fn test_looping() {
     let program = sample_programs::echo();
     let mut input = ArrayTrait::new();
@@ -56,7 +56,7 @@ fn test_looping() {
 }
 
 #[test]
-#[available_gas(52500000)]
+#[available_gas(36000000)]
 fn test_hello_world() {
     let program = sample_programs::hello_world();
 

@@ -10,7 +10,7 @@ use src::tests::test_utils::{
 };
 
 #[test]
-#[available_gas(6000000)]
+#[available_gas(3750000)]
 fn test_deploy() {
     let vm = deploy_brainfuck_vm();
     let program_id = vm.deploy(sample_programs::hello_world());
@@ -27,7 +27,7 @@ fn test_deploy_invalid_program() {
 }
 
 #[test]
-#[available_gas(8000000)]
+#[available_gas(4500000)]
 fn test_multiple_deploy() {
     let vm = deploy_brainfuck_vm();
     let id1 = vm.deploy(sample_programs::hello_world());
@@ -41,7 +41,7 @@ fn test_multiple_deploy() {
 }
 
 #[test]
-#[available_gas(60000000)]
+#[available_gas(40000000)]
 fn test_call() {
     let vm = deploy_brainfuck_vm();
     let program_id = vm.deploy(sample_programs::hello_world());
@@ -52,7 +52,7 @@ fn test_call() {
 }
 
 #[test]
-#[available_gas(150000000)]
+#[available_gas(100000000)]
 fn test_call_2() {
     let vm = deploy_brainfuck_vm();
     let program_id = vm.deploy(sample_programs::echo());
@@ -73,7 +73,7 @@ fn test_call_2() {
 
 
 #[test]
-#[available_gas(100000000)]
+#[available_gas(68000000)]
 fn test_multiple_call() {
     let vm = deploy_brainfuck_vm();
 

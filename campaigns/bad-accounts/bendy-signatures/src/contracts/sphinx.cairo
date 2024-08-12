@@ -15,6 +15,7 @@ mod Sphinx {
     use zeroable::Zeroable;
 
     use starknet::account::Call;
+    use starknet::storage::Map;
     
     const RIDDLE_1: felt252 = 0x647f8da1b20d23471c304fe5191505b40ab01e7c2e177166060a752690004d3;
     const RIDDLE_2: felt252 = 0x2b9661c2ffe97c513f34fe0be505897483feade5cb4cb1a1dd438cbc5dcb715;

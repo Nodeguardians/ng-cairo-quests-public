@@ -11,7 +11,7 @@ use src::tests::test_utils::{
 };
 
 #[test]
-#[available_gas(520000)]
+#[available_gas(250000)]
 fn test_search() {
     let mut chambers = ArrayTrait::new();
     chambers.append(new_node('l', 4, 9));
@@ -50,7 +50,7 @@ fn test_search() {
 }
 
 #[test]
-#[available_gas(500000)]
+#[available_gas(250000)]
 fn test_search_inexistent_element() {
     let mut chambers = ArrayTrait::new();
     chambers.append(new_bottom_node('0'));

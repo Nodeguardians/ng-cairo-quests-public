@@ -22,13 +22,19 @@ trait IERC20<TContractState> {
 #[starknet::contract]
 mod SoulToken {
     use zeroable::Zeroable;
-    use starknet::{ contract_address_const, ContractAddress, get_caller_address };
+    use starknet::{ 
+        contract_address_const, 
+        ContractAddress, 
+        get_caller_address,
+        storage::Map
+    };
+
     #[storage]
     struct Storage {
         admin: ContractAddress,
         total_supply: u256,
-        balances: LegacyMap::<ContractAddress, u256>,
-        allowances: LegacyMap::<(ContractAddress, ContractAddress), u256>,
+        balances: Map::<ContractAddress, u256>,
+        allowances: Map::<(ContractAddress, ContractAddress), u256>,
     }
 
     #[event]
