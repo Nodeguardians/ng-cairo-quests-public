@@ -14,6 +14,7 @@ fn test_venomous_talent() {
     duel(ref sorcerer1, ref sorcerer2);
     sorcerer1.assert_health(4);
     sorcerer2.assert_health(0);
+    sorcerer2.assert_attack(3);
 
     let mut sorcerer1 = SorcererTrait::with_talent(1, 20, Talent::Venomous(()));
     let mut sorcerer2 = SorcererTrait::with_talent(1, 100, Talent::Venomous(()));
@@ -21,6 +22,14 @@ fn test_venomous_talent() {
     duel(ref sorcerer1, ref sorcerer2);
     sorcerer1.assert_health(0);
     sorcerer2.assert_health(79);
+
+    let mut sorcerer1 = SorcererTrait::with_talent(2, 8, Talent::Venomous(()));
+    let mut sorcerer2 = SorcererTrait::new(1, 11);
+
+    duel(ref sorcerer1, ref sorcerer2);
+    sorcerer1.assert_health(4);
+    sorcerer2.assert_health(0);
+    sorcerer1.assert_attack(6);
 }
 
 #[test]
