@@ -10,12 +10,13 @@ trait IBadMarket<TContractState> {
 mod BadMarket {
     
     use starknet::{ ContractAddress, get_caller_address };
+    use starknet::storage::Map;
 
     const COST_OF_INCENSE: felt252 = 0x1777;
 
     #[storage]
     struct Storage {
-        coin_balances: LegacyMap<ContractAddress, felt252>,
+        coin_balances: Map<ContractAddress, felt252>,
         incense_sold: felt252
     }
 
