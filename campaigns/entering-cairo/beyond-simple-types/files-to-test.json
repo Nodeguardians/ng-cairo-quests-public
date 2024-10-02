@@ -1,0 +1,4 @@
+[
+    "src/sandworm_directions.cairo",
+    "src/sandworm_harness.cairo"
+]

@@ -1,0 +1,5 @@
+[
+    "src/hawk_spirit.cairo",
+    "src/hawk_spirit_trait.cairo",
+    "src/wind_spirit.cairo"
+]
