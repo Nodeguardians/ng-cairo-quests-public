@@ -1,0 +1,14 @@
+[package]
+name = "src"
+version = "1.0.0"
+cairo-version = "2.7.0"
+
+[tool.NodeGuardians]
+part_2 = "Combining Water"
+part_3 = "Determining Primes"
+part_4 = "Eating Food"
+
+[dependencies]
+cairo_test = "2.7.0"
+
+# See more keys and their definitions at https://docs.swmansion.com/scarb/docs/reference/manifest
