@@ -56,3 +56,27 @@ fn is_at_oasis_test() {
 
 
 }
+
+#[test]
+fn find_oasis_test() {
+    let oasis_map = array![false, false, false, true, false, false, true, false, false];
+
+    let hawk_0 = HawkSpirit {
+        position: 1,
+        speed: 3
+    };
+
+    let hawk_1 = HawkSpirit {
+        position: 2,
+        speed: 2
+    };
+
+    let hawk_2 = HawkSpirit {
+        position: 0,
+        speed: 1
+    };
+
+    let result = find_oasis(array![hawk_0, hawk_1, hawk_2], @oasis_map);
+    assert(result == 6, 'Unexpected oasis index!')
+
+}

@@ -12,7 +12,7 @@ impl DemonImpl of DemonTrait {
     // Returns true if `self` is evil:
     //  * Bush demons are never evil.
     //  * Cactus demons are evil if their inner `u256` is a cube number greater than 1.
-    //  * Tree demons are evil if their inner `Array<u256>` only havee integers of the same parity.
+    //  * Tree demons are evil if their inner `Array<u256>` only have integers of the same parity.
     fn is_evil(self: @Demon) -> bool {
         false
     }

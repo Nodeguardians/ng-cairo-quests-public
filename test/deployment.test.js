@@ -184,7 +184,7 @@ describe("Deployment Configuration Test", async function() {
         // Public tests should be available for all parts (except maybe part 1)
         const publicTestIndices = 
             await getTestIndices(path.resolve(questPath, "_src/tests"));
-        for (let i = 1; i < quest.parts; i++) {
+        for (let i = 2; i < quest.parts; i++) {
             assert(
                 publicTestIndices.includes(i), 
                 `${questPath} is missing public test ${i}`

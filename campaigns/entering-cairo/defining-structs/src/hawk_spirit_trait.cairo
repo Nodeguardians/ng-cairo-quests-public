@@ -3,7 +3,7 @@ use src::hawk_spirit::HawkSpirit;
 // RULE: Do not modify trait!
 trait HawkSpiritTrait {
     // Return a new `HawkSpirit` with same speed and new position:
-    //   * new_position = position^2 + speed
+    //   * new_position = position + speed
     fn fly(self: @HawkSpirit) -> HawkSpirit;
 
     // Returns true if hawk spirit is at an oasis:
