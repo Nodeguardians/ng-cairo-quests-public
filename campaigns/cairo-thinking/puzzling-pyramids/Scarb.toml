@@ -3,7 +3,7 @@ name = "src"
 version = "1.4.0"
 cairo-version = "2.7.0"
 
-[dependencies]
+[dev-dependencies]
 cairo_test = "2.7.0"
 
 [tool.NodeGuardians]
